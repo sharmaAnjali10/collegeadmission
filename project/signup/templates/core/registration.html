@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block title %}Student Registration Form {% endblock title %}
+{% block main %}
+<div class="container">
+    <div class="row my-15 justify-content-around ">
+    <div class="col-sm-5 ">
+        <form action="" method="post" class="bg-white p-5 rounded">
+            {% csrf_token %}
+            <div class="col-sm-14">
+                <h3 class="text-black" >Student Registration  form</h3>
+                <p>Please fill in the form below to complete the registration process for admission!!</p>
+            </div>
+    
+              {% for fm in form %}
+              {{fm.label_tag }}
+              {{fm}}
+              &nbsp;
+           <br/>
+          
+              <small class="text-dangerss">{{fm.errors}}</small>
+              {% endfor %}
+            
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary mt-4">Register</button>
+                </div>
+              </form>
+          {% endblock main %}    
